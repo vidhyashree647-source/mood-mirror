@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>MoodMirror</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="background-circle circle1"></div>
+<div class="background-circle circle2"></div>
+
+<div class="app">
+
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                ◉
+            </div>
+
+            <div>
+                <h2>MoodMirror</h2>
+                <span>Text & Speech Intelligence</span>
+            </div>
+
+        </div>
+
+
+        <div class="online">
+
+            <span></span>
+
+            AI READY
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <span class="tag">
+                ✦ EMOTION ANALYSIS
+            </span>
+
+            <h1>
+                See the emotion<br>
+                behind your <span>words.</span>
+            </h1>
+
+            <p>
+                Type your thoughts or speak naturally.
+                MoodMirror transforms your words into
+                meaningful emotional insights.
+            </p>
+
+        </div>
+
+
+        <!-- ORB IMAGE / VISUAL -->
+
+        <div class="mood-orb">
+
+            <div class="orb-glow"></div>
+
+            <div class="orb">
+
+                <div class="face">
+                    😊
+                </div>
+
+                <div class="orb-ring"></div>
+
+            </div>
+
+            <span class="orb-label">
+                YOUR MOOD
+            </span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- MAIN -->
+
+    <section class="workspace">
+
+
+        <!-- INPUT CARD -->
+
+        <div class="input-card">
+
+            <div class="card-heading">
+
+                <div>
+
+                    <span class="mini-label">
+                        YOUR MESSAGE
+                    </span>
+
+                    <h2>
+                        Express yourself
+                    </h2>
+
+                </div>
+
+                <div class="number">
+                    01
+                </div>
+
+            </div>
+
+
+            <textarea
+                id="textInput"
+                placeholder="Write something about your day...">
+            </textarea>
+
+
+            <div class="action-row">
+
+                <button
+                    id="startBtn"
+                    class="voice-btn">
+
+                    🎙️
+                    <span>Speak</span>
+
+                </button>
+
+
+                <button
+                    id="stopBtn"
+                    class="stop-btn">
+
+                    ■ Stop
+
+                </button>
+
+
+                <button
+                    id="analyzeBtn"
+                    class="analyze-btn">
+
+                    ✨ Analyze
+
+                </button>
+
+            </div>
+
+
+            <div id="voiceStatus"
+                 class="voice-status">
+
+                ● Ready to listen
+
+            </div>
+
+        </div>
+
+
+
+        <!-- RESULT CARD -->
+
+        <div class="result-card">
+
+            <div class="card-heading">
+
+                <div>
+
+                    <span class="mini-label">
+                        LIVE INSIGHT
+                    </span>
+
+                    <h2>
+                        Your emotion
+                    </h2>
+
+                </div>
+
+                <div class="number">
+                    02
+                </div>
+
+            </div>
+
+
+            <div class="main-emotion">
+
+                <div
+                    id="emotionEmoji"
+                    class="emotion-emoji">
+
+                    🤔
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        DETECTED MOOD
+                    </span>
+
+                    <h1 id="emotion">
+                        Waiting...
+                    </h1>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONFIDENCE -->
+
+            <div class="confidence-box">
+
+                <div class="confidence-title">
+
+                    <span>
+                        Confidence
+                    </span>
+
+                    <strong id="confidence">
+                        0%
+                    </strong>
+
+                </div>
+
+
+                <div class="progress">
+
+                    <div id="progressBar"></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- EMOTION BARS -->
+
+            <div class="emotion-list">
+
+
+                <div class="emotion-row">
+
+                    <div>
+                        😊 Happy
+                    </div>
+
+                    <strong id="happy">
+                        0%
+                    </strong>
+
+                </div>
+
+                <div class="bar">
+                    <div id="happyBar"></div>
+                </div>
+
+
+                <div class="emotion-row">
+
+                    <div>
+                        😐 Neutral
+                    </div>
+
+                    <strong id="neutral">
+                        0%
+                    </strong>
+
+                </div>
+
+                <div class="bar">
+                    <div id="neutralBar"></div>
+                </div>
+
+
+                <div class="emotion-row">
+
+                    <div>
+                        😢 Negative
+                    </div>
+
+                    <strong id="negative">
+                        0%
+                    </strong>
+
+                </div>
+
+                <div class="bar">
+                    <div id="negativeBar"></div>
+                </div>
+
+            </div>
+
+
+            <button
+                id="clearBtn"
+                class="reset-btn">
+
+                ↻ Start New Analysis
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- FEATURES -->
+
+    <section class="features">
+
+
+        <div class="feature">
+
+            <div class="feature-icon purple">
+                🎙️
+            </div>
+
+            <div>
+                <h3>Voice Input</h3>
+                <p>Speak naturally using your microphone.</p>
+            </div>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon pink">
+                🧠
+            </div>
+
+            <div>
+                <h3>NLP Analysis</h3>
+                <p>Analyze the emotional meaning of text.</p>
+            </div>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon blue">
+                📊
+            </div>
+
+            <div>
+                <h3>Visual Insight</h3>
+                <p>See your result through interactive data.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        <span>MoodMirror</span>
+        — Understanding emotions through language
+
+    </footer>
+
+</div>
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
